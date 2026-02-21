@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Solicitud de Préstamo</title>
+</head>
+
+<body>
+
+<header>
+    <h1>Solicitud de Préstamo o Apartado</h1>
+</header>
+
+<main>
+
+<form>
+
+<fieldset>
+<legend>Datos del Solicitante</legend>
+
+<label>Nombre</label>
+<input type="text" required>
+
+<label>Matrícula</label>
+<input type="text" required>
+
+</fieldset>
+
+<fieldset>
+<legend>Datos del Equipo</legend>
+
+<label>Dispositivo</label>
+<input type="text" required>
+
+<label>Cantidad</label>
+<input type="number" min="1" value="1">
+
+</fieldset>
+
+<fieldset>
+<legend>Control de Tiempo</legend>
+
+<label>Fecha y hora de préstamo</label>
+<input type="datetime-local" required>
+
+<label>Fecha y hora de devolución</label>
+<input type="datetime-local" required>
+
+</fieldset>
+
+<fieldset>
+<legend>Tipo de solicitud</legend>
+
+<label>
+<input type="radio" name="tipo" required> Préstamo
+</label>
+
+<label>
+<input type="radio" name="tipo"> Apartado
+</label>
+
+</fieldset>
+
+<button type="submit">Enviar Solicitud</button>
+
+</form>
+
+</main>
+
+</body>
+</html>

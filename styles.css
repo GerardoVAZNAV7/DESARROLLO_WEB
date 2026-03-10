@@ -1,0 +1,158 @@
+/* ===== RESET BÁSICO ===== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* ===== COLORES INSTITUCIONALES ===== */
+
+:root{
+--azul-uas:#0b2a5b;
+--dorado-uas:#c8a100;
+--gris-claro:#f4f4f4;
+}
+
+/* ===== BODY ===== */
+
+body{
+background:var(--gris-claro);
+color:#333;
+}
+
+/* ===== HEADER ===== */
+
+header{
+background:var(--azul-uas);
+color:white;
+padding:20px;
+text-align:center;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+background:var(--azul-uas);
+color:white;
+text-align:center;
+padding:15px;
+margin-top:40px;
+}
+
+/* ===== CONTENEDOR ===== */
+
+main{
+width:80%;
+margin:auto;
+margin-top:30px;
+}
+
+/* ===== MENÚ ===== */
+
+nav ul{
+list-style:none;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-top:15px;
+}
+
+nav ul li a{
+text-decoration:none;
+background:var(--dorado-uas);
+color:black;
+padding:10px 15px;
+border-radius:5px;
+font-weight:bold;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+background:#e0bb00;
+}
+
+/* ===== FORMULARIOS ===== */
+
+form{
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+}
+
+fieldset{
+border:2px solid var(--azul-uas);
+padding:15px;
+margin-bottom:20px;
+}
+
+legend{
+font-weight:bold;
+color:var(--azul-uas);
+padding:5px 10px;
+}
+
+label{
+display:block;
+margin-top:10px;
+}
+
+input, textarea, select{
+width:100%;
+padding:8px;
+margin-top:5px;
+border:1px solid #ccc;
+border-radius:4px;
+}
+
+/* ===== BOTONES ===== */
+
+button{
+background:var(--azul-uas);
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:5px;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#061c3f;
+}
+
+/* ===== TABLAS ===== */
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+margin-top:20px;
+}
+
+table th{
+background:var(--azul-uas);
+color:white;
+padding:10px;
+}
+
+table td{
+padding:10px;
+border:1px solid #ccc;
+text-align:center;
+}
+
+/* ===== BUSCADOR ===== */
+
+input[type="search"]{
+margin-top:10px;
+margin-bottom:20px;
+}
+
+/* ===== SECCIONES ===== */
+
+section{
+margin-bottom:30px;
+}

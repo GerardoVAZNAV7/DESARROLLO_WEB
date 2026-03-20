@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ejercicio 23</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --blue:#1652F0; --teal:#5BBCB8; --yellow:#F5C842; --cream:#E8D5A3; --dark:#0E1A3A; --white:#FAFAF7; --muted:#8DA3C8; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--blue); color:var(--white); font-family:'Nunito',sans-serif; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem; }
+    h1 { font-family:'Fredoka One',cursive; font-size:2rem; margin-bottom:.3rem; text-align:center; }
+    h1 span { color:var(--teal); }
+    .sub { font-size:.82rem; color:var(--muted); font-weight:600; text-align:center; margin-bottom:1.6rem; }
+
+    .card { background:var(--dark); border:1px solid rgba(91,188,184,.2); border-radius:16px; padding:1.8rem; width:100%; max-width:420px; }
+
+    label { display:block; font-size:.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.1em; color:var(--teal); margin-bottom:.4rem; }
+
+    .campo { margin-bottom:1rem; position:relative; }
+    input {
+      width:100%; background:rgba(255,255,255,.06);
+      border:1.5px solid rgba(91,188,184,.2); border-radius:8px;
+      padding:.7rem 3rem .7rem 1rem; color:var(--white);
+      font-family:'Nunito',sans-serif; font-size:1rem; font-weight:600;
+      outline:none;
+      transition:border-color .2s, box-shadow .2s;
+    }
+    input:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(91,188,184,.15); }
+    .unidad { position:absolute; right:.9rem; top:50%; transform:translateY(-50%); font-size:.8rem; color:var(--muted); font-weight:800; }
+
+    button {
+      width:100%; background:var(--yellow); color:var(--dark);
+      border:none; padding:.82rem; border-radius:8px;
+      font-family:'Nunito',sans-serif; font-size:.95rem; font-weight:800;
+      cursor:pointer; transition:background .2s, transform .15s;
+    }
+    button:hover { background:var(--cream); transform:translateY(-2px); }
+    button:active { transform:scale(.98); }
+
+    #resultado { display:none; margin-top:1.3rem; }
+
+    .imc-grande { text-align:center; padding:1.1rem; background:rgba(91,188,184,.08); border:1px solid rgba(91,188,184,.2); border-radius:12px; margin-bottom:1rem; }
+    .imc-grande .numero { font-family:'Fredoka One',cursive; font-size:3rem; line-height:1; color:var(--yellow); }
+    .imc-grande .desc { font-size:.72rem; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.1em; margin-top:.2rem; }
+
+    .badge { display:block; text-align:center; padding:.5rem 1rem; border-radius:100px; font-size:.88rem; font-weight:800; margin:0 auto .9rem; width:fit-content; }
+
+    table { width:100%; border-collapse:collapse; font-size:.76rem; }
+    th, td { padding:.4rem .6rem; border:1px solid rgba(91,188,184,.1); }
+    th { background:rgba(91,188,184,.1); color:var(--teal); font-weight:800; text-transform:uppercase; font-size:.65rem; letter-spacing:.07em; }
+    tr.activa { background:rgba(245,200,66,.1); }
+    tr:not(.activa):hover td { background:rgba(255,255,255,.03); }
+
+    .error { font-size:.75rem; color:#f87171; font-weight:700; margin-top:.5rem; min-height:1rem; }
+  </style>
+</head>
+<body>
+
+  <h1>Calculo de <span>IMC</span></h1>
+  <p class="sub">Indice de Masa Corporal para mujer</p>
+
+  <div class="card">
+    <div class="campo">
+      <label for="peso">Peso</label>
+      <input type="number" id="peso" placeholder="60" step="0.1" min="20" max="300"/>
+      <span class="unidad">kg</span>
+    </div>
+    <div class="campo">
+      <label for="talla">Talla</label>
+      <input type="number" id="talla" placeholder="1.65" step="0.01" min="1" max="2.5"/>
+      <span class="unidad">m</span>
+    </div>
+
+    <button onclick="calcularIMC()">Calcular</button>
+    <p class="error" id="error"></p>
+
+    <div id="resultado">
+      <div class="imc-grande">
+        <p class="numero" id="imc-numero">—</p>
+        <p class="desc">kg / m2</p>
+      </div>
+      <span class="badge" id="badge">—</span>
+
+      <table>
+        <thead>
+          <tr><th>Clasificacion</th><th>IMC</th></tr>
+        </thead>
+        <tbody id="tabla">
+          <tr data-min="0"    data-max="18.49"><td>Bajo peso</td><td>menos de 18.5</td></tr>
+          <tr data-min="18.5" data-max="24.99"><td>Peso normal</td><td>18.5 a 24.9</td></tr>
+          <tr data-min="25"   data-max="29.99"><td>Sobrepeso</td><td>25.0 a 29.9</td></tr>
+          <tr data-min="30"   data-max="34.99"><td>Obesidad I</td><td>30.0 a 34.9</td></tr>
+          <tr data-min="35"   data-max="39.99"><td>Obesidad II</td><td>35.0 a 39.9</td></tr>
+          <tr data-min="40"   data-max="999"  ><td>Obesidad III</td><td>40.0 o mas</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

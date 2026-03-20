@@ -1,158 +1,285 @@
-/* ===== RESET BÁSICO ===== */
+/* ===== RESET ===== */
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', Arial, sans-serif;
 }
 
-/* ===== COLORES INSTITUCIONALES ===== */
+/* ===== PALETA ===== */
 
-:root{
---azul-uas:#0b2a5b;
---dorado-uas:#c8a100;
---gris-claro:#f4f4f4;
+:root {
+  --blue:   #1652F0;
+  --teal:   #5BBCB8;
+  --yellow: #F5C842;
+  --cream:  #E8D5A3;
+  --dark:   #0E1A3A;
+  --white:  #FAFAF7;
+  --muted:  #8DA3C8;
+  --gris:   #f0f4ff;
 }
+
+/* ===== FUENTE GOOGLE ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap');
 
 /* ===== BODY ===== */
 
-body{
-background:var(--gris-claro);
-color:#333;
+body {
+  background: var(--blue);
+  color: var(--white);
+  min-height: 100vh;
 }
 
 /* ===== HEADER ===== */
 
-header{
-background:var(--azul-uas);
-color:white;
-padding:20px;
-text-align:center;
+header {
+  background: var(--dark);
+  border-bottom: 3px solid var(--yellow);
+  padding: 24px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2rem;
+  color: var(--white);
+}
+
+header h2 {
+  font-size: .95rem;
+  color: var(--teal);
+  font-weight: 600;
+  margin-top: 4px;
 }
 
 /* ===== FOOTER ===== */
 
-footer{
-background:var(--azul-uas);
-color:white;
-text-align:center;
-padding:15px;
-margin-top:40px;
+footer {
+  background: var(--dark);
+  border-top: 3px solid var(--yellow);
+  color: var(--muted);
+  text-align: center;
+  padding: 16px;
+  margin-top: 50px;
+  font-size: .85rem;
+  font-weight: 600;
 }
 
-/* ===== CONTENEDOR ===== */
+/* ===== MAIN ===== */
 
-main{
-width:80%;
-margin:auto;
-margin-top:30px;
+main {
+  width: 85%;
+  max-width: 860px;
+  margin: 36px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
-/* ===== MENÚ ===== */
+/* ===== SECCIONES DE PRACTICA ===== */
 
-nav ul{
-list-style:none;
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-margin-top:15px;
+section.practica {
+  background: var(--dark);
+  border: 1px solid rgba(91,188,184,.2);
+  border-radius: 14px;
+  padding: 1.4rem 1.6rem;
+  transition: border-color .2s, box-shadow .2s;
 }
 
-nav ul li a{
-text-decoration:none;
-background:var(--dorado-uas);
-color:black;
-padding:10px 15px;
-border-radius:5px;
-font-weight:bold;
-transition:0.3s;
+section.practica:hover {
+  border-color: var(--teal);
+  box-shadow: 0 6px 24px rgba(14,26,58,.35);
 }
 
-nav ul li a:hover{
-background:#e0bb00;
+section.practica h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.05rem;
+  color: var(--yellow);
+  margin-bottom: 1rem;
+}
+
+/* ===== MENU NAV ===== */
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: .7rem;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  background: rgba(91,188,184,.12);
+  color: var(--white);
+  border: 1px solid rgba(91,188,184,.25);
+  padding: .45rem 1rem;
+  border-radius: 6px;
+  font-size: .85rem;
+  font-weight: 700;
+  transition: background .2s, color .2s, transform .15s;
+  display: inline-block;
+}
+
+nav ul li a:hover {
+  background: var(--yellow);
+  color: var(--dark);
+  border-color: var(--yellow);
+  transform: translateY(-2px);
 }
 
 /* ===== FORMULARIOS ===== */
 
-form{
-background:white;
-padding:20px;
-border-radius:8px;
-box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+form {
+  background: var(--dark);
+  padding: 1.6rem;
+  border-radius: 14px;
+  border: 1px solid rgba(91,188,184,.2);
 }
 
-fieldset{
-border:2px solid var(--azul-uas);
-padding:15px;
-margin-bottom:20px;
+fieldset {
+  border: 1.5px solid var(--teal);
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
-legend{
-font-weight:bold;
-color:var(--azul-uas);
-padding:5px 10px;
+legend {
+  font-weight: 800;
+  color: var(--teal);
+  padding: 2px 8px;
+  font-size: .85rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
 }
 
-label{
-display:block;
-margin-top:10px;
+label {
+  display: block;
+  margin-top: 10px;
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
 }
 
-input, textarea, select{
-width:100%;
-padding:8px;
-margin-top:5px;
-border:1px solid #ccc;
-border-radius:4px;
+input, textarea, select {
+  width: 100%;
+  padding: .65rem .9rem;
+  margin-top: 5px;
+  background: rgba(255,255,255,.06);
+  border: 1.5px solid rgba(91,188,184,.22);
+  border-radius: 7px;
+  color: var(--white);
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: .95rem;
+  font-weight: 600;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(91,188,184,.15);
+}
+
+select option {
+  background: var(--dark);
 }
 
 /* ===== BOTONES ===== */
 
-button{
-background:var(--azul-uas);
-color:white;
-border:none;
-padding:10px 20px;
-border-radius:5px;
-cursor:pointer;
-margin-top:10px;
+button {
+  background: var(--yellow);
+  color: var(--dark);
+  border: none;
+  padding: .75rem 1.4rem;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: .9rem;
+  font-weight: 800;
+  transition: background .2s, transform .15s;
 }
 
-button:hover{
-background:#061c3f;
+button:hover {
+  background: var(--cream);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: scale(.97);
 }
 
 /* ===== TABLAS ===== */
 
-table{
-width:100%;
-border-collapse:collapse;
-background:white;
-margin-top:20px;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: var(--dark);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-table th{
-background:var(--azul-uas);
-color:white;
-padding:10px;
+table th {
+  background: rgba(91,188,184,.2);
+  color: var(--teal);
+  padding: 11px 10px;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 800;
 }
 
-table td{
-padding:10px;
-border:1px solid #ccc;
-text-align:center;
+table td {
+  padding: 10px;
+  border: 1px solid rgba(91,188,184,.1);
+  text-align: center;
+  font-size: .88rem;
+  color: var(--white);
+}
+
+table tr:hover td {
+  background: rgba(91,188,184,.05);
 }
 
 /* ===== BUSCADOR ===== */
 
-input[type="search"]{
-margin-top:10px;
-margin-bottom:20px;
+input[type="search"] {
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
-/* ===== SECCIONES ===== */
+/* ===== SECCIONES GENERALES ===== */
 
-section{
-margin-bottom:30px;
+section {
+  margin-bottom: 24px;
+}
+
+/* ===== TITULOS DE PAGINAS INTERNAS ===== */
+
+.titulo-pagina {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.6rem;
+  color: var(--yellow);
+  margin-bottom: 1.2rem;
+}
+
+/* ===== MENSAJES ===== */
+
+.error {
+  font-size: .78rem;
+  color: #f87171;
+  font-weight: 700;
+  margin-top: .4rem;
+}
+
+.exito {
+  font-size: .78rem;
+  color: var(--teal);
+  font-weight: 700;
+  margin-top: .4rem;
 }

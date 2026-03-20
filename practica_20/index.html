@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ejercicio 20</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --blue:#1652F0; --teal:#5BBCB8; --yellow:#F5C842; --cream:#E8D5A3; --dark:#0E1A3A; --white:#FAFAF7; --muted:#8DA3C8; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--blue); color:var(--white); font-family:'Nunito',sans-serif; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem; }
+    h1 { font-family:'Fredoka One',cursive; font-size:2rem; margin-bottom:.5rem; text-align:center; }
+    h1 span { color:var(--yellow); }
+    .subtitulo { font-size:.82rem; color:var(--muted); margin-bottom:1.8rem; text-align:center; font-weight:600; }
+
+    .vars {
+      background:var(--dark); border:1px solid rgba(91,188,184,.2);
+      border-radius:12px; padding:.9rem 1.2rem;
+      font-size:.82rem; font-weight:700; color:var(--teal);
+      font-family:'Courier New',monospace;
+      margin-bottom:1.5rem; max-width:420px; width:100%;
+      transition:border-color .2s;
+    }
+    .vars:hover { border-color:var(--teal); }
+    .vars .c { color:var(--muted); font-weight:400; }
+    .vars .v { color:var(--white); }
+
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; max-width:420px; width:100%; }
+
+    .op {
+      background:var(--dark); border:1px solid rgba(91,188,184,.2);
+      border-radius:12px; padding:1.2rem;
+      transition:transform .2s, border-color .2s;
+    }
+    .op:hover { transform:translateY(-4px); border-color:var(--yellow); }
+
+    .op .nombre { font-size:.65rem; font-weight:800; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:.2rem; }
+    .op .expr { font-size:.82rem; color:var(--teal); font-weight:700; margin-bottom:.4rem; }
+    .op .valor { font-family:'Fredoka One',cursive; font-size:2rem; color:var(--yellow); }
+  </style>
+</head>
+<body>
+
+  <h1>Operaciones con <span>JavaScript</span></h1>
+  <p class="subtitulo">Variables declaradas en app.js</p>
+
+  <div class="vars">
+    <span class="c">// variables</span><br>
+    var a = <span class="v" id="va"></span>;<br>
+    var b = <span class="v" id="vb"></span>;
+  </div>
+
+  <div class="grid">
+    <div class="op">
+      <p class="nombre">Suma</p>
+      <p class="expr">a + b</p>
+      <p class="valor" id="suma"></p>
+    </div>
+    <div class="op">
+      <p class="nombre">Resta</p>
+      <p class="expr">a - b</p>
+      <p class="valor" id="resta"></p>
+    </div>
+    <div class="op">
+      <p class="nombre">Division</p>
+      <p class="expr">a / b</p>
+      <p class="valor" id="division"></p>
+    </div>
+    <div class="op">
+      <p class="nombre">Exponenciacion</p>
+      <p class="expr">a ** b</p>
+      <p class="valor" id="expo"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ejercicio 22</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --blue:#1652F0; --teal:#5BBCB8; --yellow:#F5C842; --cream:#E8D5A3; --dark:#0E1A3A; --white:#FAFAF7; --muted:#8DA3C8; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--blue); color:var(--white); font-family:'Nunito',sans-serif; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem; }
+    h1 { font-family:'Fredoka One',cursive; font-size:2rem; margin-bottom:.4rem; text-align:center; }
+    h1 span { color:var(--yellow); }
+    .formula { font-size:.95rem; color:var(--teal); font-weight:700; text-align:center; margin-bottom:1.6rem; }
+
+    .card { background:var(--dark); border:1px solid rgba(91,188,184,.2); border-radius:16px; padding:1.8rem; width:100%; max-width:420px; }
+    .hint { font-size:.78rem; color:var(--muted); font-weight:600; margin-bottom:1.2rem; }
+
+    .fila3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.8rem; margin-bottom:1.2rem; }
+
+    label { display:block; font-size:.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.1em; color:var(--teal); margin-bottom:.4rem; }
+
+    input {
+      width:100%; background:rgba(255,255,255,.06);
+      border:1.5px solid rgba(91,188,184,.2); border-radius:8px;
+      padding:.7rem .5rem; color:var(--white);
+      font-family:'Nunito',sans-serif; font-size:1rem; font-weight:600;
+      text-align:center; outline:none;
+      transition:border-color .2s, box-shadow .2s;
+    }
+    input:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(91,188,184,.15); }
+
+    button {
+      width:100%; background:var(--yellow); color:var(--dark);
+      border:none; padding:.8rem; border-radius:8px;
+      font-family:'Nunito',sans-serif; font-size:.95rem; font-weight:800;
+      cursor:pointer; transition:background .2s, transform .15s;
+    }
+    button:hover { background:var(--cream); transform:translateY(-2px); }
+    button:active { transform:scale(.98); }
+
+    .resultados { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin-top:1.2rem; }
+    .res {
+      background:rgba(91,188,184,.08); border:1px solid rgba(91,188,184,.2);
+      border-radius:10px; padding:1rem; text-align:center;
+      transition:background .2s, border-color .2s;
+    }
+    .res:hover { background:rgba(91,188,184,.15); border-color:var(--teal); }
+    .res .lbl { font-size:.7rem; color:var(--muted); font-weight:800; text-transform:uppercase; letter-spacing:.1em; margin-bottom:.3rem; }
+    .res .val { font-family:'Fredoka One',cursive; font-size:1.8rem; color:var(--yellow); }
+
+    .disc { font-size:.72rem; color:var(--muted); font-weight:700; text-align:center; margin-top:.8rem; }
+    .error { font-size:.75rem; color:#f87171; font-weight:700; margin-top:.5rem; text-align:center; min-height:1rem; }
+  </style>
+</head>
+<body>
+
+  <h1>Formula <span>General</span></h1>
+  <p class="formula">x = (-b +- raiz(b2 - 4ac)) / 2a</p>
+
+  <div class="card">
+    <p class="hint">ax2 + bx + c = 0</p>
+
+    <div class="fila3">
+      <div><label for="a">a</label><input type="number" id="a" value="1" step="any"/></div>
+      <div><label for="b">b</label><input type="number" id="b" value="-5" step="any"/></div>
+      <div><label for="c">c</label><input type="number" id="c" value="6" step="any"/></div>
+    </div>
+
+    <button onclick="resolver()">Calcular</button>
+
+    <div class="resultados">
+      <div class="res"><p class="lbl">X1</p><p class="val" id="x1">—</p></div>
+      <div class="res"><p class="lbl">X2</p><p class="val" id="x2">—</p></div>
+    </div>
+    <p class="disc" id="disc"></p>
+    <p class="error" id="error"></p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

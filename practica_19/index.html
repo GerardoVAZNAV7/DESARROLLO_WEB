@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ejercicio 19</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --blue:#1652F0; --teal:#5BBCB8; --yellow:#F5C842; --cream:#E8D5A3; --dark:#0E1A3A; --white:#FAFAF7; --muted:#8DA3C8; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--blue); color:var(--white); font-family:'Nunito',sans-serif; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem; }
+    h1 { font-family:'Fredoka One',cursive; font-size:2rem; margin-bottom:1.5rem; text-align:center; }
+    h1 span { color:var(--yellow); }
+
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; max-width:760px; width:100%; }
+
+    .mc {
+      background:var(--dark); border:1px solid rgba(91,188,184,.2);
+      border-radius:14px; padding:1.3rem;
+      transition:transform .2s, border-color .2s;
+    }
+    .mc:hover { transform:translateY(-4px); border-color:var(--teal); }
+
+    .mc .metodo { font-size:.65rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:.6rem; }
+    .mc h3 { font-family:'Fredoka One',cursive; font-size:1rem; margin-bottom:.3rem; }
+    .mc p { font-size:.78rem; color:var(--muted); line-height:1.5; }
+    .mc .val { margin-top:.8rem; padding:.4rem .7rem; background:rgba(245,200,66,.08); border-left:3px solid var(--yellow); border-radius:0 6px 6px 0; font-size:.8rem; font-weight:700; color:var(--yellow); }
+
+    .botones { display:flex; gap:1rem; margin-top:1.5rem; flex-wrap:wrap; justify-content:center; }
+
+    button {
+      background:var(--yellow); color:var(--dark);
+      border:none; padding:.7rem 1.4rem; border-radius:8px;
+      font-family:'Nunito',sans-serif; font-size:.88rem; font-weight:800;
+      cursor:pointer; transition:background .2s, transform .15s;
+    }
+    button:hover { background:var(--cream); transform:translateY(-2px); }
+    button.outline { background:transparent; color:var(--teal); border:1.5px solid var(--teal); }
+    button.outline:hover { background:var(--teal); color:var(--dark); }
+
+    #salida-write { margin-top:1rem; padding:.8rem 1.2rem; background:rgba(14,26,58,.6); border:1px dashed rgba(91,188,184,.25); border-radius:10px; font-size:.85rem; font-weight:600; color:var(--cream); max-width:760px; width:100%; }
+  </style>
+</head>
+<body>
+
+  <h1>Salidas con <span>JavaScript</span></h1>
+
+  <div class="grid">
+    <div class="mc">
+      <p class="metodo">document.write()</p>
+      <h3>Escritura directa</h3>
+      <p>Escribe contenido directo en el documento.</p>
+      <div class="val">Ver boton abajo</div>
+    </div>
+    <div class="mc">
+      <p class="metodo">innerHTML</p>
+      <h3>Elemento del DOM</h3>
+      <p>Modifica el contenido de un elemento existente.</p>
+      <div class="val" id="val-inner"></div>
+    </div>
+    <div class="mc">
+      <p class="metodo">console.log()</p>
+      <h3>Consola</h3>
+      <p>Muestra datos en la consola del navegador (F12).</p>
+      <div class="val">Ver en F12</div>
+    </div>
+    <div class="mc">
+      <p class="metodo">window.alert()</p>
+      <h3>Alerta</h3>
+      <p>Muestra una ventana emergente con un mensaje.</p>
+      <div class="val">Ver boton abajo</div>
+    </div>
+  </div>
+
+  <div class="botones">
+    <button onclick="mostrarAlert()">Mostrar alert</button>
+    <button class="outline" onclick="mostrarWrite()">document.write</button>
+  </div>
+
+  <div id="salida-write">El resultado de document.write aparecera aqui.</div>
+
+  <script src="app.js"></script>
+</body>
+</html>

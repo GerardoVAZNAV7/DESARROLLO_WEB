@@ -1,9 +1,9 @@
 // Mis datos personales
-var nombre = "Tu Nombre";
-var edad = 20;
+var nombre = "Gerardo Vazquez";
+var edad = 21;
 var carrera = "Ingenieria en Sistemas";
-var semestre = 3;
-var correo = "tu@correo.com";
+var semestre = 6;
+var correo = "gvazquez020705@gmail.com";
 
 // innerHTML - muestra mis datos en la tarjeta
 document.getElementById("val-inner").innerHTML = nombre + " · Sem. " + semestre;
